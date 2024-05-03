@@ -2,14 +2,14 @@ parameters:
   buildConfiguration: 'Release'
 
 steps:
-- tasks: DotNetCoreCLI@2
+- task: DotNetCoreCLI@2
   displayName: 'Build the project - ${{ parameters.buildconfiguration }}'
   inputs: 
     command: 'build'
     arguments: '--no-restore --configuration ${{ parameters.buildconfiguration}}'
     projects: '**/*.csproj'
 
-- tasks:
+- task:
   displayName: 'Publish project - $ {{ parameters.buildConfiguration}}'
   inputs:
     command: 'publish'
